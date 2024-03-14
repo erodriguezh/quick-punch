@@ -1,12 +1,24 @@
 {
   "name": "quick-punch",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Quick Punch for ATOSS streamlines the clock-in and out process, enabling fast and effortless time tracking with a single tap. Perfect for on-the-go professionals, it integrates seamlessly with ATOSS for hassle-free time management.",
+  "author": {
+    "name": "erodr",
+    "email": "710174+erodriguezh@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build-quick-punch-web": "ng build",
+    "build-quick-punch-desktop": "tsc --project projects/quick-punch-desktop/tsconfig.json",
+    "watch-quick-punch-web": "ng build --watch --configuration development",
+    "wait-for-serve-quick-punch-web": "wait-on http://localhost:4200",
+    "serve-quick-punch-web": "ng serve quick-punch-web",
+    "start": "concurrently \"npm run build-quick-punch-desktop\" \"npm run serve-quick-punch-web\" \"npm run wait-for-serve-quick-punch-web && electron-forge start\"",
+    "package": "npm run build-quick-punch-desktop && npm run build-quick-punch-web && electron-forge package",
+    "make": "npm run build-quick-punch-desktop && npm run build-quick-punch-web && electron-forge make",
+    "publish-app": "npm run build-quick-punch-desktop && npm run build-quick-punch-web && electron-forge publish"
   },
   "private": true,
   "dependencies": {
@@ -18,20 +30,34 @@
     "@angular/platform-browser": "^17.2.0",
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
+    "electron-squirrel-startup": "^1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.0",
     "@angular/cli": "^17.2.3",
     "@angular/compiler-cli": "^17.2.0",
+    "@electron-forge/cli": "^7.3.0",
+    "@electron-forge/maker-deb": "^7.3.0",
+    "@electron-forge/maker-rpm": "^7.3.0",
+    "@electron-forge/maker-squirrel": "^7.3.0",
+    "@electron-forge/maker-zip": "^7.3.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.3.0",
+    "@electron-forge/publisher-github": "^7.3.0",
     "@types/jasmine": "~5.1.0",
+    "concurrently": "^8.2.2",
+    "electron": "^29.1.4",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.3.2"
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.3.2",
+    "wait-on": "^7.2.0"
   }
 }
