@@ -1,5 +1,8 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import path from 'path';
+
+// app
+import { StorageHandlers } from './storage/handlers';
 
 let win: BrowserWindow | null;
 const quickPunchWebProjectName = 'quick-punch-web';
@@ -27,7 +30,10 @@ function createWindow () {
   }
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  new StorageHandlers();
+  createWindow();
+});
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
