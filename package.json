@@ -32,6 +32,7 @@
     "@angular/router": "^17.2.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.2.0",
+    "puppeteer": "^22.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
@@ -48,6 +49,7 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.3.0",
     "@electron-forge/publisher-github": "^7.3.0",
     "@types/jasmine": "~5.1.0",
+    "@types/puppeteer": "^7.0.4",
     "concurrently": "^8.2.2",
     "electron": "^29.1.4",
     "jasmine-core": "~5.1.0",
