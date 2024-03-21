@@ -18,7 +18,7 @@ export class PunchClockHandlers {
         return { success: true };
       } catch (error) {
         console.error('Error in punch-clock ipcMain handler:', error);
-        return { success: false, error: error.message };
+        return { success: false, error: { name: error.name, message: error.message } };
       }
     });
   }

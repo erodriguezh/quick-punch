@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 
 // libs
-import { EMPTY, Observable, catchError, combineLatest, from, map } from 'rxjs';
+import { EMPTY, Observable, catchError, combineLatest, from, map, of, throwError } from 'rxjs';
 
 // app
 import { IpcService } from '../../../core/services/ipc.service';
@@ -22,9 +22,9 @@ export class AuthService {
           pin: String(pin)
         }
       }),
-      catchError((err) => {
-        console.error(err);
-        return EMPTY;
+      catchError((err: Error) => {
+        console.log('Handling error on AuthService credentials and rethrowing it', err);
+        return throwError(() => err);
       })
     );
   }
