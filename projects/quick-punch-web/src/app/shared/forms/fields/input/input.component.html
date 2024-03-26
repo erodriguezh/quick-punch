@@ -1,0 +1,21 @@
+<div [formGroup]="group" class="form-group">
+  @if (field && field?.label! && field?.label!.length > 0) {
+    <label [for]="field?.label" class="form-label">{{ field?.label }}</label>
+  }
+
+  @if (showError) {
+    <div class="validation-feedback">
+      @for (error of errors; track error) {
+        <p>{{ error }}</p>
+      }
+    </div>
+  }
+
+
+  <input
+    [formControlName]="field?.name!"
+    [attr.placeholder]="field?.placeholder"
+    class="form-control"
+    [attr.type]="field?.attrs?.type || 'text'"
+  />
+</div>

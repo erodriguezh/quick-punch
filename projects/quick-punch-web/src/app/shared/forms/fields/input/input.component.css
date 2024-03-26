@@ -1,0 +1,15 @@
+.form-group {
+
+}
+
+.form-label {
+  @apply block text-sm font-medium text-white;
+}
+
+.form-control {
+  @apply mt-1 block w-full px-3 py-2 bg-charcoal-333 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-bright-green focus:border-bright-green sm:text-sm text-white;
+}
+
+.validation-feedback {
+  @apply text-sm text-red-500 mt-1 mb-1;
+}

@@ -6,11 +6,9 @@ export class LoginNotFoundException extends Error {
 }
 
 export class InputFormErrorException extends Error {
-  constructor(key: string, message: string) {
-    const obj: { [key: string]: any } = {};
-    obj[key] = [message];
-    super(JSON.stringify(obj));
-    this.name = 'FormErrorException';
+  constructor(message: string) {
+    super(message);
+    this.name = 'InputFormErrorException';
   }
 }
 

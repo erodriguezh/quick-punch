@@ -1,0 +1,27 @@
+.page {
+ @apply flex justify-center items-center min-h-screen bg-charcoal-300;
+}
+
+.container {
+  @apply w-full max-w-md px-5 py-10 mx-auto bg-charcoal-333 rounded-lg shadow-lg;
+}
+
+.headline {
+  @apply text-xl font-semibold text-center text-white;
+}
+
+.description {
+ @apply text-sm text-center text-white mt-2;
+}
+
+.row {
+  @apply mt-6;
+}
+
+.col-md-6 {
+  @apply space-y-4;
+}
+
+.btn {
+ @apply w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-charcoal-333 bg-vivid-lime-green hover:bg-bright-green focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bright-green;
+}

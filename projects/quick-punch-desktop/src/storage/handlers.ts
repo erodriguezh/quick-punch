@@ -17,7 +17,7 @@ export class StorageHandlers {
         this.storageManager.set(data.key, data.value);
         return { success: true };
       } catch (error) {
-        return { success: false, error: error.message };
+        return { success: false, error: { name: error.name, message: error.message } };
       }
     });
 
@@ -26,7 +26,7 @@ export class StorageHandlers {
         const value = this.storageManager.get(key);
         return { success: true, value };
       } catch (error) {
-        return { success: false, error: error.message };
+        return { success: false, error: { name: error.name, message: error.message } };
       }
     });
 
@@ -35,7 +35,7 @@ export class StorageHandlers {
         this.storageManager.delete(key);
         return { success: true };
       } catch (error) {
-        return { success: false, error: error.message };
+        return { success: false, error: { name: error.name, message: error.message } };
       }
     });
   }

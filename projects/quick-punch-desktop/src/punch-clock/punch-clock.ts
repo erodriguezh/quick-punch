@@ -105,7 +105,7 @@ export class PunchClockController {
         SELECTORS.formStatus,
         (element) => element.textContent.trim()
       );
-      throw new InputFormErrorException(`${statusMessage}`);
+      throw new InputFormErrorException('', `${statusMessage}`);
     } catch (error) {
       if (error instanceof TimeoutError) {
         console.log('Login successful, continuing flow...');

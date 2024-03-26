@@ -8,6 +8,7 @@ import {
   NotFoundException,
   DataTypeException
 } from './storage-errors';
+import { InputFormErrorException } from '../punch-clock/punch-clock-errors';
 
 export class StorageManager {
   private static instance: StorageManager;
@@ -32,6 +33,7 @@ export class StorageManager {
   }
 
   set(key: string, value: string): void {
+    this.validateSetValue(key, value);
     try {
       const encrypted = safeStorage.encryptString(value);
       const encryptedBase64 = encrypted.toString('base64');
@@ -40,6 +42,12 @@ export class StorageManager {
       throw new CannotSetException(
         `Cannot set value for key ${key}. Error: ${error}`
       );
+    }
+  }
+
+  private validateSetValue(key: string, value: string){
+    if (!!value && value.length < 0) {
+      throw new InputFormErrorException(key, 'is required.')
     }
   }
 
