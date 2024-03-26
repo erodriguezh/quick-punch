@@ -27,7 +27,12 @@
             "styles": [
               "projects/quick-punch-web/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/quick-punch-web/tailwind.config.js"
+              ]
+            }
           },
           "configurations": {
             "production": {

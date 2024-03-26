@@ -66,7 +66,7 @@ export class IpcService {
         const createError = errorMapper({ name: result.error.name, message: result.error.message });
         return Promise.reject(createError);
       }
-      return result.data as T;
+      return result;
     } else {
       console.error(`Unexpected response format from IPC call to '${channel}'.`);
       return Promise.reject(new Error('Unexpected response format from IPC call'));

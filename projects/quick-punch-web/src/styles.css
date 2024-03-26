@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+colors: {
+        neutral: '#181719', // Swatch 1 Dark: Dark gray for backgrounds
+        primary: '#3937a5', // Swatch 4 Dark: Deeper blue-purple for primary accents
+        accent: '#666793', // Swatch 2 Dark: Deeper muted purple for accents
+        elements: '#4b4d75', // Swatch 3 Dark: Darker soft purple for elements
+        alerts: '#b74d3f', // Swatch 5 Dark: Darker, muted red for critical actions or alerts
+        'secondary-elements': '#342a35', // Swatch 6 Dark: Dark muted pink for secondary elements
+        text: '#c7b3ad', // Swatch 7 Dark: Lighter, soft cream for text or highlights
+        'secondary-accents': '#484b9e', // Swatch 8 Dark: Dark periwinkle for secondary accents
+      },
+*/
+
+@layer utilities {
+  .bg-charcoal-300 {
+    background-color: hsl(0, 0%, 24%);
+  }
+  .bg-charcoal-333 {
+    background-color: hsl(0, 0%, 20%);
+  }
+  .text-charcoal-333 {
+    color: hsl(0, 0%, 20%);
+  }
+  .bg-vivid-lime-green {
+    --tw-bg-opacity: 1;
+    background-color: hsla(75, 100%, 50%, var(--tw-bg-opacity));
+  }
+  .ring-bright-green {
+    --tw-ring-opacity: 1;
+    --tw-ring-color: hsla(120, 100%, 50%, var(--tw-ring-opacity));
+    box-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-width) var(--tw-ring-color), var(--tw-ring-offset-shadow), var(--tw-shadow, 0 0 #0000);
+  }
+  .bg-bright-green {
+    --tw-bg-opacity: 1;
+    background-color: hsla(120, 100%, 50%, var(--tw-bg-opacity));
+  }
+  .border-bright-green {
+    --tw-border-opacity: 1;
+    border-color: hsla(120, 100%, 50%, var(--tw-border-opacity)); /* Adjust the HSL values to match your bright green */
+  }
+}
