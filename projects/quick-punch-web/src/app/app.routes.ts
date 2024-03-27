@@ -10,6 +10,10 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'welcome',
+    loadComponent: () => import('./features/welcome/welcome.component').then((m) => m.WelcomeComponent),
+  },
+  {
     path: 'punch-clock',
     loadComponent: () => import('./features/punch-clock/punch-clock.component').then((m) => m.PunchClockComponent),
     canActivate: [authGuard],

@@ -15,31 +15,124 @@ colors: {
       },
 */
 
+/*
+Primary colors
+100 - Lightest (Great for backgrounds): hsl(88, 87%, 95%)
+200 - Lighter (Still quite light, but more pronounced): hsl(88, 87%, 80%)
+300 - Soft (Lighter than base, useful for hover states): hsl(88, 87%, 65%)
+400 - Slightly Lighter than Base (Subtle variation): hsl(88, 87%, 54%)
+500 - Base Color: hsl(88, 87%, 43%) (Our original color)
+600 - Slightly Darker than Base (Good for text or icons): hsl(88, 80%, 38%)
+700 - Dark (Darker, good for text or important elements): hsl(88, 75%, 33%)
+800 - Darker (Very dark, more suitable for text): hsl(88, 70%, 28%)
+900 - Darkest (Mostly used for text or very important elements): hsl(88, 65%, 23%)
+
+Neutral colors
+100 - Lightest (For backgrounds and light surfaces.): hsl(0, 0%, 98%)
+200 - Lighter (For subtle divisions and borders): hsl(0, 0%, 90%)
+300 - Soft (For secondary text or subdued elements): hsl(0, 0%, 80%)
+500 - Base Color: hsl(0, 0%, 60%) (The base neutral, often used for primary text)
+700 - Dark (For important text or active UI elements.): hsl(0, 0%, 40%)
+900 - Darkest (For very important or emphasized text, often used sparingly.): hsl(0, 0%, 20%)
+
+Accent colors
+
+AccentSuccess: Indicating successful actions or states. hsl(120, 46%, 40%)
+
+AccentWarning: A golden hue that's noticeable and associated with warnings. hsl(36, 100%, 50%)
+
+Danger (AccentDanger): A color that denotes error or danger. hsl(0, 78%, 53%)
+
+ */
+
+:root {
+  --primary-100: hsl(88, 87%, 95%);
+  --primary-200: hsl(88, 87%, 80%);
+  --primary-300: hsl(88, 87%, 65%);
+  --primary-400: hsl(88, 87%, 54%);
+  --primary-500: hsl(88, 87%, 43%);
+  --primary-600: hsl(88, 80%, 38%);
+  --primary-700: hsl(88, 75%, 33%);
+  --primary-800: hsl(88, 70%, 28%);
+  --primary-900: hsl(88, 65%, 23%);
+
+  /* Neutrals */
+  --neutral-100: hsl(0, 0%, 98%);
+  --neutral-200: hsl(0, 0%, 90%);
+  --neutral-300: hsl(0, 0%, 80%);
+  --neutral-500: hsl(0, 0%, 60%);
+  --neutral-700: hsl(0, 0%, 40%);
+  --neutral-900: hsl(0, 0%, 20%);
+
+  /* Accents */
+  --accent-success: hsl(120, 46%, 40%);
+  --accent-warning: hsl(36, 100%, 50%);
+  --accent-danger: hsl(0, 78%, 53%);
+}
+
 @layer utilities {
-  .bg-charcoal-300 {
-    background-color: hsl(0, 0%, 24%);
+  .bg-neutral-700 {
+    background-color: var(--neutral-700); /* Dark gray, replaced charcoal-300 and charcoal-333 */
   }
-  .bg-charcoal-333 {
-    background-color: hsl(0, 0%, 20%);
+  .text-neutral-700 {
+    color: var(--neutral-700); /* Dark gray for text, replaced text-neutral-700 */
   }
-  .text-charcoal-333 {
-    color: hsl(0, 0%, 20%);
+  .bg-primary-500 {
+    background-color: var(--primary-500); /* Primary green background */
   }
-  .bg-vivid-lime-green {
-    --tw-bg-opacity: 1;
-    background-color: hsla(75, 100%, 50%, var(--tw-bg-opacity));
-  }
-  .ring-bright-green {
-    --tw-ring-opacity: 1;
-    --tw-ring-color: hsla(120, 100%, 50%, var(--tw-ring-opacity));
+  .ring-primary-500 {
+    --tw-ring-color: var(--primary-500);
     box-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-width) var(--tw-ring-color), var(--tw-ring-offset-shadow), var(--tw-shadow, 0 0 #0000);
   }
-  .bg-bright-green {
-    --tw-bg-opacity: 1;
-    background-color: hsla(120, 100%, 50%, var(--tw-bg-opacity));
+  .border-primary-500 {
+    border-color: var(--primary-500); /* Primary green border */
   }
-  .border-bright-green {
-    --tw-border-opacity: 1;
-    border-color: hsla(120, 100%, 50%, var(--tw-border-opacity)); /* Adjust the HSL values to match your bright green */
+}
+
+@layer components {
+  .debug {
+    @apply border border-red-500;
+  }
+
+  .horizontal {
+    @apply flex flex-row;
+  }
+
+  .vertical {
+    @apply flex flex-col;
+  }
+
+  /* Rename the class for vertical centering in a horizontal layout */
+  .horizontal-center-v {
+    @apply items-center;
+  }
+
+  /* Rename the class for horizontal centering in a horizontal layout */
+  .horizontal-center-h {
+    @apply justify-center;
+  }
+
+  /* Center both horizontally and vertically in a horizontal layout */
+  .horizontal-center {
+    @apply justify-center items-center;
+  }
+
+  /* Center vertically in a vertical layout */
+  .vertical-center-v {
+    @apply justify-center;
+  }
+
+  /* Center horizontally in a vertical layout */
+  .vertical-center-h {
+    @apply items-center;
+  }
+
+  /* Center both horizontally and vertically in a vertical layout */
+  .vertical-center {
+    @apply justify-center items-center;
+  }
+
+  .space-between {
+    @apply justify-between;
   }
 }
