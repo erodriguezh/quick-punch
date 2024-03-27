@@ -5,7 +5,15 @@
   "projects": {
     "quick-punch-web": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "css",
+          "standalone": true,
+          "changeDetection": "OnPush",
+          "displayBlock": true,
+          "skipTests": true
+        }
+      },
       "root": "projects/quick-punch-web",
       "sourceRoot": "projects/quick-punch-web/src",
       "prefix": "app",
